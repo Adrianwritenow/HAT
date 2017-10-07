@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 
-class HatHistory extends Component {
+export default class HatHistory extends Component {
 
   render(){
     return (
@@ -15,7 +15,7 @@ class HatHistory extends Component {
           </form>
         </div>
         <div className="lineGraphJumboTron">
-          <h1>Level LineGraph HERE<h1>
+          <h1>Level LineGraph HERE</h1>
         </div>
 
         <div className="emailToForm">
@@ -23,21 +23,9 @@ class HatHistory extends Component {
           <input type="text" placeholder="What email do you want to send it to?"/>
             <button>send</button>
           </form>
-        <div>
+        </div>
       </div>
 
   );
 }
 }
-const mapStateToProps = (state) => {
-    return {
-
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(HatHistory);

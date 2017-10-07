@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 
-class BaseLayout extends Component {
+export default class BaseLayout extends Component {
 
   render(){
     return (
@@ -16,10 +16,10 @@ class BaseLayout extends Component {
               <NavLink activeClassName="selected" className="nav-link" exact to="/register">Register</NavLink>
             </li>
             <li>
-              <NavLink activeClassName="selected" className="nav-link" exact to="/newHat">Secret</NavLink>
+              <NavLink activeClassName="selected" className="nav-link" exact to="/newHat">New Hat</NavLink>
             </li>
             <li>
-              <NavLink activeClassName="selected" className="nav-link" exact to="/hatHistory">Secret</NavLink>
+              <NavLink activeClassName="selected" className="nav-link" exact to="/hatHistory">Hat History</NavLink>
             </li>
           </ul>
           <button className="logOutBtn">Log Out</button>
@@ -30,15 +30,3 @@ class BaseLayout extends Component {
   );
 }
 }
-const mapStateToProps = (state) => {
-    return {
-
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(BaseLayout);

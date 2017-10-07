@@ -3,17 +3,47 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "express": "^4.16.0",
+    "express-session": "^1.15.6",
+    "express-validator": "^4.2.1",
+    "history": "^4.7.2",
+    "immutability-helper": "^2.4.0",
+    "js-cookie": "^2.1.4",
+    "jsonwebtoken": "^8.0.1",
+    "jwt-simple": "^0.5.1",
+    "moment": "^2.18.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "pg": "^7.3.0",
+    "random-token": "0.0.8",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.6",
     "react-scripts": "1.0.14",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "superagent": "^3.6.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": "authenticate.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adrianwritenow/HAT.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Adrianwritenow/HAT/issues"
+  },
+  "homepage": "https://github.com/Adrianwritenow/HAT#readme"
 }
