@@ -56,6 +56,7 @@ class Register extends Component {
         <div className="Register">
           <form onSubmit={this.register}>
             <fieldset>
+              <h3>REGISTER</h3>
               <div className="input-single">
                   <input type="text" name="email" value={this.state.email} placeholder='Email' onChange={this.updateState('email')}/>
               </div>

@@ -10,19 +10,19 @@ export default class BaseLayout extends Component {
         <nav className="navbar navbar-dark ">
           <ul className="nav">
             <li>
-              <NavLink activeClassName="selected" className="nav-link" exact to="/login">Log In</NavLink>
+              <NavLink className="button" exact to="/login">Log In</NavLink>
             </li>
             <li>
-              <NavLink activeClassName="selected" className="nav-link" exact to="/register">Register</NavLink>
+              <NavLink  className="button" exact to="/register">Register</NavLink>
             </li>
             <li>
-              <NavLink activeClassName="selected" className="nav-link" exact to="/newHat">New Hat</NavLink>
+              <NavLink  className="button" exact to="/newHat">New Hat</NavLink>
             </li>
             <li>
-              <NavLink activeClassName="selected" className="nav-link" exact to="/hatHistory">Hat History</NavLink>
+              <NavLink className="button" exact to="/hatHistory">Hat History</NavLink>
             </li>
           </ul>
-          <button className="logOutBtn">Log Out</button>
+          <button className="button">Log Out</button>
         </nav>
       {this.props.children}
     </div>

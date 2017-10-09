@@ -3,35 +3,42 @@ import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 
 export default class NewHat extends Component {
-
-  componentWillMount() {
-    console.log("component mounted");
+    constructor(props) {
+        super(props);
+        this.state = {
+            level: "",
+            ailments:[""]
+        }
     }
-      constructor(props) {
-          super(props);
-          this.state = {
-              username: "",
-              user_id: ""
-          }
+  componentDidMount(){
+    console.log("COMPONENT MOUNTED");
+  }
+
+  updateState = (field) => {
+      return (event) => {
+          this.setState({[field]: event.target.value})
       }
+      console.log("this state:",this.state)
+
+  }
+
 
   render(){
     return (
       <div className="wrapper">
         <div className="levelFormContainer">
-          <form>
-            <input type="text" placeholder="What was your Level?"/>
+          <form onSubmit={this.sendLevel}>
+            <input type="text" value={this.state.level} onChange={this.updateState('level')} placeholder="What was your Level?"/>
             <button type="submit">Submit</button>
           </form>
         </div>
-        <div className="levelJumboTron">
-          <h1>Level Jumbotron HERE</h1>
-        </div>
-        <div className="levelBar">
-          <h1>Level Bar here</h1>
+        <div className="jumbotron jumbotron-fluid">
+          <div className="container">
+            {this.state.level}
+          </div>
         </div>
         <div className="ailmentFormContainer">
-          <form>
+          <form onSubmit={this.sendAilment}>
             <button>ailments go here</button>
             <button>save results</button>
           </form>

@@ -2,13 +2,9 @@ import request from "superagent";
 import Cookies from 'js-cookie';
 import { push } from 'react-router-redux';
 
-
-
 export const SET_TOKEN = 'SET_TOKEN';
 export const SET_USER = 'SET_USER';
 export const SET_ERROR = 'SET_ERROR';
-
-
 
 const makeActionCreator = function(actionType) {
     return function(payload) {
@@ -19,7 +15,6 @@ const makeActionCreator = function(actionType) {
 export const setToken = makeActionCreator(SET_TOKEN);
 const setUser = makeActionCreator(SET_USER);
 const setError = makeActionCreator(SET_ERROR);
-
 
 export const register = ({
     email,
@@ -101,4 +96,10 @@ export const getDashboard = (token) => {
           dispatch(push('/newHat'));
     }
   }
+}
+
+export const newLevel = () =>{
+    return (dispatch, getState) => {
+
+    }
 }

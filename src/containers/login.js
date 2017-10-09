@@ -38,7 +38,7 @@ class Login extends Component {
                     <fieldset>
                         <legend>{this.props.loggedIn
                                 ? "Log in as a different user"
-                                : "Log in"}</legend>
+                                : "LOG IN"}</legend>
                         <div className="input-single">
                             <input type="text" name="username" value={this.state.username} placeholder='User Name' onChange={this.updateState('username')}/>
                         </div>
