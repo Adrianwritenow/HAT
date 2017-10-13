@@ -29,7 +29,3 @@ CREATE TABLE snapshotSymptoms (
   snapshot_id INTEGER REFERENCES snapshots(id),
   symptom_id INTEGER REFERENCES symptoms(id)
 );
-
-INSERT INTO snapshots( user_id, snap_Time, level)VALUES('1','2017-8-13T12:53:33.000Z',73);
-INSERT INTO snapshots( user_id, snap_Time, level)VALUES('1','2017-7-13T12:53:33.000Z',63);
-INSERT INTO snapshots( user_id, snap_Time, level)VALUES('1','2017-6-13T12:53:33.000Z',85);
