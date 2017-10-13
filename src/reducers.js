@@ -1,11 +1,12 @@
-import {SET_TOKEN, SET_USER, SET_ERROR} from './actions';
+import {SET_TOKEN, SET_USER, SET_ERROR, SET_HISTORY} from './actions';
 
 import update from 'immutability-helper';
 
 const initialState = {
     token: null,
     user: null,
-    error: null
+    error: null,
+    history:null
 }
 
 const reducer = (state = initialState, action) => {
@@ -28,6 +29,14 @@ const reducer = (state = initialState, action) => {
                     $set: action.payload
                 }
             });
+
+            case SET_HISTORY:
+            console.log('history set');
+                return update(state, {
+                    history: {
+                        $set: action.payload
+                    }
+                });
         default:
             return state;
     }

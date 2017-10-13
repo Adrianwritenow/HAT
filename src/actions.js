@@ -1,10 +1,13 @@
 import request from "superagent";
 import Cookies from 'js-cookie';
 import { push } from 'react-router-redux';
+import moment from 'moment';
+
 
 export const SET_TOKEN = 'SET_TOKEN';
 export const SET_USER = 'SET_USER';
 export const SET_ERROR = 'SET_ERROR';
+export const SET_HISTORY = 'SET_HISTORY';
 
 const makeActionCreator = function(actionType) {
     return function(payload) {
@@ -15,6 +18,8 @@ const makeActionCreator = function(actionType) {
 export const setToken = makeActionCreator(SET_TOKEN);
 const setUser = makeActionCreator(SET_USER);
 const setError = makeActionCreator(SET_ERROR);
+const setHistory = makeActionCreator(SET_HISTORY);
+
 
 export const register = ({
     email,
@@ -41,12 +46,53 @@ export const register = ({
             console.log('check:');
     }
 }
+
 export const logOutFromSession = () =>{
   return (dispatch) => {
   dispatch(setToken(null));
+  dispatch(setUser(null));
+  dispatch(setHistory(null));
+  dispatch(getDashboard());
+  dispatch(push('/'));
+
+
   Cookies.set('token', {expires: 0});
-  }
+
 }
+
+}
+
+
+export const sendLevel =({
+  level,
+  snap_Time
+}, callback)=>{
+  return (dispatch, getState) => {
+    let store = getState();
+    if (!store.reducer.token) {
+      dispatch(push('/login'));
+      return;
+    }
+    console.log("bout to send a level");
+
+    request
+        .post("http://localhost:3001/newHat")
+        .send({level: level, snap_Time:snap_Time, user_id:store.reducer.user.id})
+        .end((err, res) => {
+            if (err) {
+                return dispatch(setError(err));
+            } else {
+                dispatch(setError(null));
+            }
+            if (callback) {
+                callback();
+            }
+
+        })
+        console.log('check:');
+  }
+  }
+
 
 export const loadTokenFromCookie = () => {
     return (dispatch) => {
@@ -98,8 +144,39 @@ export const getDashboard = (token) => {
   }
 }
 
-export const newLevel = () =>{
-    return (dispatch, getState) => {
-
+export const getHistory = () => {
+  console.log('in the getHistory action');
+  return (dispatch, getState) => {
+    let store = getState();
+    if (!store.reducer.token) {
+      dispatch(push('/login'));
+      return;
     }
+    request
+      .post("http://localhost:3001/hatHistory")
+      .send({user_id:store.reducer.user.id})
+      .end((err,response) => {
+          if (err) {
+              return dispatch(setError(err));
+          } else {
+              dispatch(setError(null));
+              console.log("response in getting history:",response.body.history);
+              let data =  response.body.history;
+              let newArray = data.map(function(elem){
+                return {x: moment(elem.snap_time).format('MMM-DD-YYYY HH:MM' ),
+                        y: parseInt(elem.level)
+                        };
+              })
+              console.log("newArray:",newArray);
+
+              dispatch(setHistory(newArray))
+              dispatch(push('/hatHistory'));
+
+          }
+          dispatch(push('/hatHistory'));
+
+
+      })
+      console.log('check: HatHistory');
+}
 }

@@ -43,7 +43,7 @@ passport.deserializeUser((user, done) => done(null, user));
 
 
 
-app.post('/register', jsonParser, function(request, response, next) {
+app.post('/register', function(request, response, next) {
   const {
     username,
     email,
@@ -85,61 +85,59 @@ response.json({ username: request.user.username, id: request.user.id, auth_token
 app.post('/logout', function(request, response) {
 });
 
-app.post('/newHat', jsonParser, function(request, response, next) {
+app.post('/newHat', function(request, response, next) {
+  var schema = {
+    'userEntrey': {
+      notEmpty: true,
+      isLength: {
+        options: {
+          max: 1
+        },
+        errorMessage: 'One letter at a time'
+      },
+      errorMessage: 'Please enter a letter'
+    }
+  };
   const {
-    username,
-    email,
-    password,
-    auth_token
+    level,
+    user_id,
+    snap_Time
   } = request.body;
 
   console.log("request.body:",request.body);
   console.log("click");
-  const insert = 'INSERT INTO users(username, email, password, auth_token) VALUES($1, $2, $3, $4)';
+  const insert = 'INSERT INTO snapshots(level, user_id, snap_Time) VALUES($1, $2, $3)';
   console.log("bang");
-  client.query(insert, [username, email, password, auth_token], function(err, dbResponse) {
-    console.log("dbResponse",request.body);
-    passport.authenticate('local', function(error, user) {
-      if (error) {
-        next(error);
-      } else if (!user) {
+
+    if (!user_id) {
         console.log("OK you are here");
-      } else {
-        request.login(user, function(err) {
-          if (err) {
-            next(err);
-          } else {
+      }else {
+            client.query(insert, [level, user_id, snap_Time], function(err, dbResponse) {
+              console.log("dbResponse",request.body);
             console.log("done");
-          }
         })
       }
-    })
+    });
+
+
+app.post('/hatHistory',function(request, response){
+  console.log("Node hatHistory");
+  const {user_id} = request.body;
+  client.query('SELECT * FROM users LEFT JOIN snapshots ON snapshots.user_id = users.id WHERE level !=$1 AND users.id =$2', [" ",user_id], function(err, dbResponse) {
+    if (err){
+      console.log(err)
+    }else{
+      console.log("The Response",dbResponse.rows)
+      response.json({history: dbResponse.rows});
+      return;
+    }
+
   });
+  console.log("bang in history");
+  // response.json({hatHistory:response.rows});
+
+
 });
-
-
-
-
-// app.post('/newHat', function(request, response) {
-//   let current_date = new Date();
-//   client.query('INSERT INTO messages (title, body, user_id, messageTime) VALUES($1, $2, $3, $4)', [request.body.title, request.body.message, request.session.passport.user, current_date], (err, results) => {
-//     if (err) {
-//       response.redirect('/');
-//       return next(err);
-//     } else {
-//       response.redirect('/gabble');
-//     }
-//   });
-// });
-
-// app.post('/:id/delete', function(request, response) {
-//   client.query('DELETE FROM likes WHERE message_id=$1', [request.params.id], (err, dbResponse) => {
-//     client.query('DELETE FROM messages WHERE id=$1', [request.params.id], (err, dbResponse) => {
-//       response.redirect('/gabble')
-//     })
-//   })
-// })
-
 
 
 app.listen(3001, function() {

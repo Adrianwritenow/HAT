@@ -32,7 +32,7 @@ class Register extends Component {
 
     register = (event) => {
         event.preventDefault();
-        let token = randomToken(16);
+        const token = randomToken(16);
         this.setState({auth_token: token});
         console.log("this state in register:",this.state)
 

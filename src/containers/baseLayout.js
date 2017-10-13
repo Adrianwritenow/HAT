@@ -1,8 +1,17 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
+import {logOutFromSession} from "../actions";
 
-export default class BaseLayout extends Component {
+
+class BaseLayout extends Component {
+
+  logOut = (event) => {
+      event.preventDefault();
+      console.log('click');
+      this.props.logout();
+      console.log('bang');
+  }
 
   render(){
     return (
@@ -22,7 +31,7 @@ export default class BaseLayout extends Component {
               <NavLink className="button" exact to="/hatHistory">Hat History</NavLink>
             </li>
           </ul>
-          <button className="button">Log Out</button>
+          <button className="button" onClick={this.logOut}>Log Out</button>
         </nav>
       {this.props.children}
     </div>
@@ -30,3 +39,11 @@ export default class BaseLayout extends Component {
   );
 }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+      logout: () => dispatch(logOutFromSession())
+    }
+}
+
+export default connect(null, mapDispatchToProps)(BaseLayout);

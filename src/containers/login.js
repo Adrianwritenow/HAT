@@ -11,6 +11,10 @@ class Login extends Component {
             password: ""
         }
     }
+    componentDidMount(){
+      console.log("COMPONENT MOUNTED: LOGIN");
+    }
+
 
     updateState = (field) => {
         return (event) => {

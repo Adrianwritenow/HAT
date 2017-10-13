@@ -1,17 +1,19 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
+import {sendLevel} from '../actions';
 
-export default class NewHat extends Component {
+
+class NewHat extends Component {
     constructor(props) {
         super(props);
         this.state = {
             level: "",
-            ailments:[""]
+            snap_Time:""
         }
     }
   componentDidMount(){
-    console.log("COMPONENT MOUNTED");
+    console.log("COMPONENT MOUNTED:NEWHAT");
   }
 
   updateState = (field) => {
@@ -19,9 +21,27 @@ export default class NewHat extends Component {
           this.setState({[field]: event.target.value})
       }
       console.log("this state:",this.state)
-
   }
 
+  sendLevel = (event) => {
+      event.preventDefault();
+      var dt = new Date();
+      var utcDate = dt.toUTCString();
+
+      console.log(utcDate);
+      this.setState({snap_Time:utcDate});
+
+      const sendLevel = this.props.sendLevel;
+
+      sendLevel({level:this.state.level,snap_Time:utcDate}, () => {
+        this.setState({
+          level: "",
+          snap_Time:""
+        })
+
+      });
+
+  }
 
   render(){
     return (
@@ -37,14 +57,16 @@ export default class NewHat extends Component {
             {this.state.level}
           </div>
         </div>
-        <div className="ailmentFormContainer">
-          <form onSubmit={this.sendAilment}>
-            <button>ailments go here</button>
-            <button>save results</button>
-          </form>
-        </div>
       </div>
 
   );
 }
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        sendLevel: (levelInfo, callback) => dispatch(sendLevel(levelInfo, callback))
+    }
+}
+
+export default connect(null,mapDispatchToProps)(NewHat);

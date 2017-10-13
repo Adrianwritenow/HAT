@@ -67,6 +67,7 @@ h6 {
   width: 300px;
   font-family: 'Poiret One', cursive;
   color: #FF4C54;
+	margin-top: 65px;
 }
 
 .Register, .Login{
@@ -141,4 +142,39 @@ h6 {
 	color: red;
 	text-align: center;
 	margin-top: -51px;
+}
+
+/*//////////////////////////////////*/
+
+img{
+	margin-top: -300px;
+  margin-left: -400px;
+	box-shadow: 10px 10px 5px black;
+}
+
+.hatBanner>h1, .hatFooter>h4{
+	font-family: 'Poiret One', cursive;
+
+}
+
+.hatBanner>h1{
+text-align: center;
+font-size: 11em;
+	margin-left: -32px;
+}
+/*//////////////////////////////////*/
+.contentContainer{
+    margin-left: 90px;
+}
+#root > div > div > div.contentContainer > div > svg > g > g > text > tspan{
+		font-size: 7px !important;
+}
+
+#root > div > div > div.contentContainer > div > svg{
+	overflow: visible;
+
+}
+
+h1{
+	font-family: 'Poiret One', cursive;
 }
