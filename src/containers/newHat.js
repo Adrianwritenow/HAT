@@ -32,6 +32,11 @@ class NewHat extends Component {
       this.setState({snap_Time:utcDate});
 
       const sendLevel = this.props.sendLevel;
+      if (this.state.level === "") {
+        console.log('you need to enter something');
+        return;
+
+      }else{
 
       sendLevel({level:this.state.level,snap_Time:utcDate}, () => {
         this.setState({
@@ -42,7 +47,7 @@ class NewHat extends Component {
       });
 
   }
-
+}
   render(){
     return (
       <div className="wrapper">

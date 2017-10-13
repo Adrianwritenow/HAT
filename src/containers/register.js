@@ -24,6 +24,10 @@ class Register extends Component {
         return (event) => {
             this.setState({[field]: event.target.value})
             console.log("this state:",this.state)
+            const token = randomToken(16);
+            this.setState({auth_token: token});
+
+
         }
     }
 
@@ -32,8 +36,6 @@ class Register extends Component {
 
     register = (event) => {
         event.preventDefault();
-        const token = randomToken(16);
-        this.setState({auth_token: token});
         console.log("this state in register:",this.state)
 
         const register = this.props.register;

@@ -147,14 +147,17 @@ h6 {
 /*//////////////////////////////////*/
 
 img{
-	margin-top: -300px;
-  margin-left: -400px;
-	box-shadow: 10px 10px 5px black;
+	margin-top: 150px;
+	margin-left: 390px;
 }
 
 .hatBanner>h1, .hatFooter>h4{
 	font-family: 'Poiret One', cursive;
 
+}
+
+.hatFooter>h4{
+	text-align: center;
 }
 
 .hatBanner>h1{

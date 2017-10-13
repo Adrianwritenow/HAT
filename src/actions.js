@@ -37,14 +37,19 @@ export const register = ({
                     return dispatch(setError(err));
                 } else {
                     dispatch(setError(null));
+
                 }
                 if (callback) {
                     callback();
                 }
 
             })
+
             console.log('check:');
+            dispatch(push('/login'));
+
     }
+
 }
 
 export const logOutFromSession = () =>{
@@ -72,7 +77,7 @@ export const sendLevel =({
     if (!store.reducer.token) {
       dispatch(push('/login'));
       return;
-    }
+    }else{
     console.log("bout to send a level");
 
     request
@@ -82,7 +87,10 @@ export const sendLevel =({
             if (err) {
                 return dispatch(setError(err));
             } else {
+              dispatch(push('/hatHistory'));
+
                 dispatch(setError(null));
+
             }
             if (callback) {
                 callback();
@@ -91,7 +99,10 @@ export const sendLevel =({
         })
         console.log('check:');
   }
+  dispatch(push('/hatHistory'));
+
   }
+}
 
 
 export const loadTokenFromCookie = () => {
@@ -151,7 +162,7 @@ export const getHistory = () => {
     if (!store.reducer.token) {
       dispatch(push('/login'));
       return;
-    }
+    }else{
     request
       .post("http://localhost:3001/hatHistory")
       .send({user_id:store.reducer.user.id})
@@ -170,13 +181,12 @@ export const getHistory = () => {
               console.log("newArray:",newArray);
 
               dispatch(setHistory(newArray))
-              dispatch(push('/hatHistory'));
 
           }
-          dispatch(push('/hatHistory'));
 
 
       })
       console.log('check: HatHistory');
+}
 }
 }
