@@ -51,16 +51,14 @@ class NewHat extends Component {
   render(){
     return (
       <div className="wrapper">
+      <div className='description'>
+        <h1>PLEASE ENTER YOUR BLOOD SUGAR LEVEL</h1>
+      </div>
         <div className="levelFormContainer">
           <form onSubmit={this.sendLevel}>
             <input type="text" value={this.state.level} onChange={this.updateState('level')} placeholder="What was your Level?"/>
-            <button type="submit">Submit</button>
+            <button className='button' type="submit">Submit</button>
           </form>
-        </div>
-        <div className="jumbotron jumbotron-fluid">
-          <div className="container">
-            {this.state.level}
-          </div>
         </div>
       </div>
 

@@ -1,6 +1,3 @@
-DROP DATABASE IF EXISTS hatDb;
-CREATE DATABASE hatDb;
-
 \c hatDb
 
 CREATE TABLE users (

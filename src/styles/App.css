@@ -147,7 +147,7 @@ h6 {
 /*//////////////////////////////////*/
 
 img{
-	margin-top: 150px;
+	margin-top: 90px;
 	margin-left: 390px;
 }
 
@@ -164,6 +164,8 @@ img{
 text-align: center;
 font-size: 11em;
 	margin-left: -32px;
+	margin-top: -55px;
+
 }
 /*//////////////////////////////////*/
 .contentContainer{
@@ -180,4 +182,33 @@ font-size: 11em;
 
 h1{
 	font-family: 'Poiret One', cursive;
+}
+
+.wrapper{
+	display: block;
+    align-items: center;
+
+}
+
+.levelFormContainer > form > input{
+	width: 400px;
+	margin-top: 7px;
+	margin-bottom: 15px;
+
+}
+
+.levelFormContainer > form{
+	display: flex;
+flex-wrap: wrap;
+justify-content: center;
+    margin-top: 225px;
+}
+
+.description>h1{
+	font-family: 'Poiret One', cursive;
+	margin-top: -135px;
+}
+
+.lineGraphJumboTron > h1{
+	margin-top: -150px;
 }
