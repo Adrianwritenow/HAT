@@ -26,10 +26,10 @@ class HatDirectory extends Component {
         <div className="levelFormContainer">
         <ul className="nav">
           <li>
-            <NavLink className="button" exact to="/newhat">BLOOD SUGAR</NavLink>
+            <NavLink className="button" exact to="/newHatBS">BLOOD SUGAR</NavLink>
           </li>
           <li>
-            <NavLink  className="button" exact to="/register">WEIGHT</NavLink>
+            <NavLink  className="button" exact to="/newHatLB">WEIGHT</NavLink>
           </li>
         </div>
       </div>
