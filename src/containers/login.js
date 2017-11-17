@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {login} from "../actions";
 import {setToken} from '../actions';
 
+// need to handle failed login
 class Login extends Component {
     constructor(props) {
         super(props);

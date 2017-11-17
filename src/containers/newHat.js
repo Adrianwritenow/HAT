@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import {sendLevel} from '../actions';
 
-
+// need to add a weight tracker
 class NewHat extends Component {
     constructor(props) {
         super(props);

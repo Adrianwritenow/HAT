@@ -5,6 +5,8 @@ import {getHistory} from '../actions';
 import { VictoryChart, VictoryLine, VictoryTheme, VictoryScatter } from 'victory';
 
 
+// need to add new weight line graph and remove date from the x axis as it 
+// is cluttering the graph
 
 class HatHistory extends Component {
 
