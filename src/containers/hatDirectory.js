@@ -1,9 +1,8 @@
 import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
-import {sendLevel} from '../actions';
 
-//weight tracker need to create database for weight.
-class NewHat extends Component {
+//weight tracker need to create database for weight
+class HatDirectory extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -15,49 +14,23 @@ class NewHat extends Component {
     console.log("COMPONENT MOUNTED:NEWHAT");
   }
 
-  updateState = (field) => {
-      return (event) => {
-          this.setState({[field]: event.target.value})
-      }
-      console.log("this state:",this.state)
-  }
 
-  sendLevel = (event) => {
-      event.preventDefault();
-      var dt = new Date();
-      var utcDate = dt.toUTCString();
 
-      console.log(utcDate);
-      this.setState({snap_Time:utcDate});
 
-      const sendLevel = this.props.sendLevel;
-      if (this.state.level === "") {
-        console.log('you need to enter something');
-        return;
-
-      }else{
-
-      sendLevel({level:this.state.level,snap_Time:utcDate}, () => {
-        this.setState({
-          level: "",
-          snap_Time:""
-        })
-
-      });
-
-  }
-}
   render(){
     return (
       <div className="wrapper">
       <div className='description'>
-        <h1>PLEASE ENTER YOUR BLOOD SUGAR LEVEL</h1>
+        <h1>WHAT DO YOU WANT TO TRACK?</h1>
       </div>
         <div className="levelFormContainer">
-          <form onSubmit={this.sendLevel}>
-            <input type="text" value={this.state.level} onChange={this.updateState('level')} placeholder="What was your Level?"/>
-            <button className='button' type="submit">Submit</button>
-          </form>
+        <ul className="nav">
+          <li>
+            <NavLink className="button" exact to="/newhat">BLOOD SUGAR</NavLink>
+          </li>
+          <li>
+            <NavLink  className="button" exact to="/register">WEIGHT</NavLink>
+          </li>
         </div>
       </div>
 
