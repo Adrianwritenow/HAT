@@ -56,7 +56,7 @@ class HatLb extends Component {
       </div>
         <div className="levelFormContainer">
           <form onSubmit={this.sendLevel}>
-            <input type="text" value={this.state.level} onChange={this.updateState('level')} placeholder="What was your Level?"/>
+            <input type="text" value={this.state.level} onChange={this.updateState('level')} placeholder="How much do you weigh?"/>
             <button className='button' type="submit">Submit</button>
           </form>
         </div>

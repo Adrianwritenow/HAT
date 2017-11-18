@@ -15,6 +15,13 @@ CREATE TABLE snapshots (
   level TEXT
 );
 
+CREATE TABLE snapshotsLb (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users (id),
+  snap_Time TIMESTAMP,
+  level TEXT
+);
+
 CREATE TABLE symptoms (
   id SERIAL PRIMARY KEY,
   description TEXT,
