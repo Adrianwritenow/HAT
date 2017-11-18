@@ -13,7 +13,7 @@ class HatLb extends Component {
         }
     }
   componentDidMount(){
-    console.log("COMPONENT MOUNTED:NEWHAT");
+    console.log("COMPONENT MOUNTED:HatLb");
   }
 
   updateState = (field) => {
@@ -72,4 +72,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null,mapDispatchToProps)(NewHat);
+export default connect(null,mapDispatchToProps)(HatLb);

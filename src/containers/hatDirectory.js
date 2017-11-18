@@ -1,8 +1,9 @@
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 
 //weight tracker need to create database for weight
-class HatDirectory extends Component {
+export default class HatDirectory extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -31,17 +32,10 @@ class HatDirectory extends Component {
           <li>
             <NavLink  className="button" exact to="/newHatLB">WEIGHT</NavLink>
           </li>
+        </ul>
         </div>
       </div>
 
   );
 }
 }
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        sendLevel: (levelInfo, callback) => dispatch(sendLevel(levelInfo, callback))
-    }
-}
-
-export default connect(null,mapDispatchToProps)(NewHat);

@@ -7,7 +7,7 @@ import NewHat from "./containers/newHat";
 import Login from "./containers/login";
 import HatHistory from "./containers/hatHistory";
 import HatDirectory from "./containers/hatDirectory";
-import HatLb from "./containers/hatlb";
+import HatLb from "./containers/hatLb";
 import {loadTokenFromCookie} from './actions';
 import {combineReducers, applyMiddleware } from 'redux';
 import { withRouter } from 'react-router';
