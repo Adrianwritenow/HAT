@@ -28,7 +28,7 @@ class BaseLayout extends Component {
               <NavLink  className="button" exact to="/newHat">New Hat</NavLink>
             </li>
             <li>
-              <NavLink className="button" exact to="/hatHistory">Hat History</NavLink>
+              <NavLink className="button" exact to="/historyDirectory">Hat History</NavLink>
             </li>
           </ul>
           <button className="button" onClick={this.logOut}>Log Out</button>

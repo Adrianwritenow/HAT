@@ -6,6 +6,8 @@ import Register from "./containers/register";
 import NewHat from "./containers/newHat";
 import Login from "./containers/login";
 import HatHistory from "./containers/hatHistory";
+import HatHistoryLb from "./containers/hatHistoryLb";
+import HistoryDirectory from "./containers/historyDirectory";
 import HatDirectory from "./containers/hatDirectory";
 import HatLb from "./containers/hatLb";
 import {loadTokenFromCookie} from './actions';
@@ -36,8 +38,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
                 <Route exact path="/newHat" component={HatDirectory}/>
                 <Route exact path="/newHatBS" component={NewHat}/>
                 <Route exact path="/newHatLB" component={HatLb}/>
-
+                <Route exact path="/historyDirectory" component={HistoryDirectory}/>
                 <Route exact path="/hatHistory" component={HatHistory}/>
+                <Route exact path="/hatHistoryLb" component={HatHistoryLb}/>
+
               </BaseLayout>
             </Switch>
             </ConnectedRouter>
