@@ -119,6 +119,40 @@ app.post('/newHat', function(request, response, next) {
       }
     });
 
+app.post('/newHatLB', function(request, response, next) {
+  var schema = {
+    'userEntrey': {
+      notEmpty: true,
+      isLength: {
+        options: {
+          max: 1
+        },
+        errorMessage: 'One letter at a time'
+      },
+      errorMessage: 'Please enter a letter'
+    }
+  };
+  const {
+    weight,
+    user_id,
+    snap_Time
+  } = request.body;
+
+  console.log("request.body:",request.body);
+  console.log("click");
+  const insert = 'INSERT INTO snapshotslb(level, user_id, snap_Time) VALUES($1, $2, $3)';
+  console.log("bang");
+
+    if (!user_id) {
+        console.log("OK you are here");
+      }else {
+            client.query(insert, [level, user_id, snap_Time], function(err, dbResponse) {
+              console.log("dbResponse",request.body);
+            console.log("done");
+        })
+      }
+    });
+
 
 app.post('/hatHistory',function(request, response){
   console.log("Node hatHistory");

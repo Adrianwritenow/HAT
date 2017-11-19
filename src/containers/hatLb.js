@@ -31,14 +31,14 @@ class HatLb extends Component {
       console.log(utcDate);
       this.setState({snap_Time:utcDate});
 
-      const sendLevel = this.props.sendLevel;
+      const sendLevelLb = this.props.sendLevelLb;
       if (this.state.level === "") {
         console.log('you need to enter something');
         return;
 
       }else{
 
-      sendLevel({level:this.state.level,snap_Time:utcDate}, () => {
+      sendLevelLb({level:this.state.level,snap_Time:utcDate}, () => {
         this.setState({
           level: "",
           snap_Time:""
@@ -55,7 +55,7 @@ class HatLb extends Component {
         <h1>PLEASE ENTER YOUR WEIGHT</h1>
       </div>
         <div className="levelFormContainer">
-          <form onSubmit={this.sendLevel}>
+          <form onSubmit={this.sendLevelLb}>
             <input type="text" value={this.state.level} onChange={this.updateState('level')} placeholder="How much do you weigh?"/>
             <button className='button' type="submit">Submit</button>
           </form>

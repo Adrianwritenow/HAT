@@ -81,7 +81,7 @@ export const sendLevel =({
     console.log("bout to send a level");
 
     request
-        .post("http://localhost:3001/newHat")
+        .post("http://localhost:3001/newHat"|| "http://localhost:3001/newHatLb") 
         .send({level: level, snap_Time:snap_Time, user_id:store.reducer.user.id})
         .end((err, res) => {
             if (err) {
