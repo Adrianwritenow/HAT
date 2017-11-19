@@ -4,8 +4,8 @@ import {NavLink} from 'react-router-dom';
 import {getHistory} from '../actions';
 import { VictoryChart, VictoryLine, VictoryTheme, VictoryScatter } from 'victory';
 
-
-// need to add new weight line graph and remove date from the x axis as it 
+//need to shift hat history to a new directory seperating weight and blood sugar
+// need to add new weight line graph and remove date from the x axis as it
 // is cluttering the graph
 
 class HatHistory extends Component {

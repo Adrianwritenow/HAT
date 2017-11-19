@@ -168,9 +168,6 @@ app.post('/hatHistory',function(request, response){
 
   });
   console.log("bang in history");
-  // response.json({hatHistory:response.rows});
-
-
 });
 
 
