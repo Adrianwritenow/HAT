@@ -173,7 +173,7 @@ app.post('/hatHistory',function(request, response){
 app.post('/hatHistoryLb',function(request, response){
   console.log("Node hatHistory");
   const {user_id} = request.body;
-  client.query('SELECT * FROM users LEFT JOIN snapshots ON snapshots.user_id = users.id WHERE level !=$1 AND users.id =$2', [" ",user_id], function(err, dbResponse) {
+  client.query('SELECT * FROM users LEFT JOIN snapshotsLb ON snapshotsLb.user_id = users.id WHERE level !=$1 AND users.id =$2', [" ",user_id], function(err, dbResponse) {
     if (err){
       console.log(err)
     }else{
