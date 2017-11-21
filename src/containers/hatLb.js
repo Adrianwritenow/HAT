@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
-import {sendLevel} from '../actions';
+import {sendLevelLb} from '../actions';
 
 // need to add a weight tracker
 class HatLb extends Component {
@@ -23,7 +23,7 @@ class HatLb extends Component {
       console.log("this state:",this.state)
   }
 
-  sendLevel = (event) => {
+  sendLevelLb = (event) => {
       event.preventDefault();
       var dt = new Date();
       var utcDate = dt.toUTCString();
@@ -68,7 +68,7 @@ class HatLb extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        sendLevel: (levelInfo, callback) => dispatch(sendLevel(levelInfo, callback))
+        sendLevelLb: (levelInfo, callback) => dispatch(sendLevelLb(levelInfo, callback))
     }
 }
 

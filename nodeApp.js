@@ -119,7 +119,7 @@ app.post('/newHat', function(request, response, next) {
       }
     });
 
-app.post('/newHatLB', function(request, response, next) {
+app.post('/newHatLb', function(request, response, next) {
   var schema = {
     'userEntrey': {
       notEmpty: true,
@@ -133,14 +133,14 @@ app.post('/newHatLB', function(request, response, next) {
     }
   };
   const {
-    weight,
+    level,
     user_id,
     snap_Time
   } = request.body;
 
   console.log("request.body:",request.body);
   console.log("click");
-  const insert = 'INSERT INTO snapshotslb(level, user_id, snap_Time) VALUES($1, $2, $3)';
+  const insert = 'INSERT INTO snapshotsLb(level, user_id, snap_Time) VALUES($1, $2, $3)';
   console.log("bang");
 
     if (!user_id) {

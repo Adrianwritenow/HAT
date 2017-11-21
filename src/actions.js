@@ -81,7 +81,7 @@ export const sendLevel =({
     console.log("bout to send a level");
 
     request
-        .post("http://localhost:3001/newHat"|| "http://localhost:3001/newHatLb")
+        .post("http://localhost:3001/newHat")
         .send({level: level, snap_Time:snap_Time, user_id:store.reducer.user.id})
         .end((err, res) => {
             if (err) {
@@ -103,6 +103,44 @@ export const sendLevel =({
 
   }
 }
+
+
+export const sendLevelLb =({
+  level,
+  snap_Time
+}, callback)=>{
+  return (dispatch, getState) => {
+    let store = getState();
+    if (!store.reducer.token) {
+      dispatch(push('/login'));
+      return;
+    }else{
+    console.log("bout to send a level");
+
+    request
+        .post("http://localhost:3001/newHatLb")
+        .send({level: level, snap_Time:snap_Time, user_id:store.reducer.user.id})
+        .end((err, res) => {
+            if (err) {
+                return dispatch(setError(err));
+            } else {
+              dispatch(push('/hatHistoryLb'));
+
+                dispatch(setError(null));
+
+            }
+            if (callback) {
+                callback();
+            }
+
+        })
+        console.log('check:');
+  }
+  dispatch(push('/hatHistoryLb'));
+
+  }
+}
+
 
 
 export const loadTokenFromCookie = () => {
@@ -200,7 +238,7 @@ export const getHistoryLb = () => {
       return;
     }else{
     request
-      .post("http://localhost:3001/hatHistory")
+      .post("http://localhost:3001/hatHistoryLb")
       .send({user_id:store.reducer.user.id})
       .end((err,response) => {
           if (err) {

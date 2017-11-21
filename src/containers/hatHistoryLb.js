@@ -26,7 +26,7 @@ class HatHistoryLb extends Component {
     event.preventDefault();
     const getHistoryLb = this.props.getHistoryLb;
       console.log("BUTTON CLICKED");
-      getHistory();
+      getHistoryLb();
   }
 
 
