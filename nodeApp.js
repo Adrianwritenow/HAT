@@ -170,6 +170,22 @@ app.post('/hatHistory',function(request, response){
   console.log("bang in history");
 });
 
+app.post('/hatHistoryLb',function(request, response){
+  console.log("Node hatHistory");
+  const {user_id} = request.body;
+  client.query('SELECT * FROM users LEFT JOIN snapshots ON snapshots.user_id = users.id WHERE level !=$1 AND users.id =$2', [" ",user_id], function(err, dbResponse) {
+    if (err){
+      console.log(err)
+    }else{
+      console.log("The Response",dbResponse.rows)
+      response.json({history: dbResponse.rows});
+      return;
+    }
+
+  });
+  console.log("bang in history");
+});
+
 
 app.listen(3001, function() {
   console.log('server farted on port 3001');

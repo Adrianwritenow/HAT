@@ -81,7 +81,7 @@ export const sendLevel =({
     console.log("bout to send a level");
 
     request
-        .post("http://localhost:3001/newHat"|| "http://localhost:3001/newHatLb") 
+        .post("http://localhost:3001/newHat"|| "http://localhost:3001/newHatLb")
         .send({level: level, snap_Time:snap_Time, user_id:store.reducer.user.id})
         .end((err, res) => {
             if (err) {
@@ -156,6 +156,42 @@ export const getDashboard = (token) => {
 }
 
 export const getHistory = () => {
+  console.log('in the getHistory action');
+  return (dispatch, getState) => {
+    let store = getState();
+    if (!store.reducer.token) {
+      dispatch(push('/login'));
+      return;
+    }else{
+    request
+      .post("http://localhost:3001/hatHistory")
+      .send({user_id:store.reducer.user.id})
+      .end((err,response) => {
+          if (err) {
+              return dispatch(setError(err));
+          } else {
+              dispatch(setError(null));
+              console.log("response in getting history:",response.body.history);
+              let data =  response.body.history;
+              let newArray = data.map(function(elem){
+                return {x: moment(elem.snap_time).format('MMM-DD-YYYY HH:MM' ),
+                        y: parseInt(elem.level)
+                        };
+              })
+              console.log("newArray:",newArray);
+
+              dispatch(setHistory(newArray))
+
+          }
+
+
+      })
+      console.log('check: HatHistory');
+}
+}
+}
+
+export const getHistoryLb = () => {
   console.log('in the getHistory action');
   return (dispatch, getState) => {
     let store = getState();
