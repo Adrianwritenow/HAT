@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {NavLink} from 'react-router-dom';
-import {getHistory} from '../actions';
+import {getHistoryLb} from '../actions';
 import { VictoryChart, VictoryLine, VictoryTheme, VictoryScatter } from 'victory';
 
 // change gethistory to take only lb from psql db
@@ -22,9 +22,9 @@ class HatHistoryLb extends Component {
 
 
 
-  getHistory = (event) => {
+  getHistoryLb = (event) => {
     event.preventDefault();
-    const getHistory = this.props.getHistory;
+    const getHistoryLb = this.props.getHistoryLb;
       console.log("BUTTON CLICKED");
       getHistory();
   }
@@ -62,7 +62,7 @@ class HatHistoryLb extends Component {
     return (
       <div className="wrapper">
         <div className="dateForm">
-          <form onSubmit={this.getHistory}>
+          <form onSubmit={this.getHistoryLb}>
             <button className="button" type="submit">Update My Chart!</button>
           </form>
         </div>
@@ -86,7 +86,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        getHistory: () => dispatch(getHistory())
+        getHistoryLb: () => dispatch(getHistoryLb())
     }
 }
 
