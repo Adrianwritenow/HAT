@@ -146,6 +146,16 @@ h6 {
 
 /*//////////////////////////////////*/
 
+@media only screen and (max-width: 390px) {
+	img{
+		margin-top: 90px;
+		margin-left: 7px;
+		size: 50%;
+		width: 360px;
+		height: auto;
+		margin-top: 5px;
+	}
+}
 img{
 	margin-top: 90px;
 	margin-left: 390px;
