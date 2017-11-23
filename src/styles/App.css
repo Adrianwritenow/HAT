@@ -237,7 +237,7 @@ justify-content: center;
 		}
 		img{
 	    margin-top: 10px;
-			margin-left: 125px;
+			margin-left: 122px;
 			size: 50%;
 			width: 360px;
 			height: auto;
@@ -282,4 +282,14 @@ justify-content: center;
 	.hatFooter > h4{
 		margin-left: 125px;
 	}
+	.Register > form{
+		margin-left: 135px;
+	}
+	 .Login > form{
+		 margin-left: 135px;
+	 }
+	 .levelFormContainer > form > input{
+     margin-left: 110px;
+		 width:200px;
+	 }
 }
