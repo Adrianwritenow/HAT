@@ -222,7 +222,7 @@ justify-content: center;
 	margin-top: -150px;
 }
 
-@media only screen and (max-width: 390px) {
+@media only screen and (max-width: 420px) {
 	.description>h1{
     margin-top: -40px;
 		}
@@ -290,6 +290,21 @@ justify-content: center;
 	 }
 	 .levelFormContainer > form > input{
      margin-left: 110px;
-		 width:200px;
+		 margin-right: 5px;
+			width: 300px;
+			text-align: center;
 	 }
+	 .levelFormContainer > form > button{
+		  margin-left: 120px;
+	 }
+	 .levelFormContainer > form{
+		 margin-top: 160px;
+	 }
+	 .contentContainer > .VictoryContainer{
+		 margin-left: 10px;
+	 }
+}
+
+@media only screen and (max-width: 360px) {
+	
 }
