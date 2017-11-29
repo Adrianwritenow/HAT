@@ -325,4 +325,11 @@ justify-content: center;
 	img{
 	  margin-left: 117px;
 	}
+	.levelFormContainer > ul{
+
+		margin-left: 50%;
+}
+.description>h1{
+	margin-left: 25%;
+	}
 }
